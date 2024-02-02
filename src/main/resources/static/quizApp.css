@@ -50,7 +50,7 @@
   cursor: pointer;
 
 }
-.prev-next, .restart-btn{
+.previous-and-next, .restart-btn{
   padding: 10px 20px;
   background-color: blue;
   color: white;
@@ -77,119 +77,30 @@
   font-family: 'Times New Roman', Times, serif;
   color: red;
 }
-.each-wrong{
-  margin: 5px;
- 
-}
-.result-container{
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
+
+
 .result-details{
   display: inline-flex;
   justify-content: center;
+  text-align: center;
 }
 .result-details > div{
   margin: 20px;
 }
-#attempted, #correct, #wrong {
+#attempted, #corrected, #wrong {
   display: inline-block;
   width: 30%;
   text-align: center;
   margin-right: 5%;
+  font-size: x-large;
 }
 
 
-.result-details
-{
-  text-align: center;
-}
-h3
-{
-  text-align: center;
-  font-size: xx-large;
-}
 .hide {
   display: none;
 }
-*
-{
-  margin: 0;
-  padding: 0;
-  background-color:"#F0F8FF";
-}
 
 
-.main-wrapper{
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: large;
-  width: 100%;
-  height: 90vh;
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.quiz-container{
-  background-color: whitesmoke;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius:10px;
-  width: 80%;
-  max-width: 750px;
-  height: 50%;
-  padding: 30px;
-
-
-.pointer-container
-{
-  font-size: x-large;
-  margin-bottom: 20px;
-}
-.question_name
-{
-  font-size: larger;
-  font-weight: 650;
- 
-}
-}
-.each-answer{
-  margin: 40px;
-  font-weight: 200;
-}
-.each-answer:hover
-{
-  background-color: grey;
-  cursor: pointer;
-}
-.prev-next, .restart-btn{
-  padding: 10px 20px;
-  background-color: blue;
-  color: white;
-  border: none;
-  cursor: pointer;
-  width: 140px;
-  height: 60px;
-  font-size: x-large;
-}
-.next
-{
-  margin-left:auto;
-}
-
-
-.action-btns button:hover{
-  background-color: white;
-  color: blue;
-  border: blue solid 5px;
-  border-color: black;
-}
-.wrongAnswers
-{
-  font-family: 'Times New Roman', Times, serif;
-  color: red;
-}
 .each-wrong{
   margin: 5px;
   font-family: Arial, Helvetica, sans-serif;
@@ -216,21 +127,8 @@ h3
   font-size: 2.5em;
   color: #333;
 }
-.result-details{
-  display: inline-flex;
-  justify-content: center;
-}
-.result-details > div{
-  margin: 20px;
-}
-#attempted, #corrected, #wrong {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: larger;
-  display: inline-block;
-  width: 30%;
-  text-align: center;
-  margin-right: 5%;
-}
+
+
 .restart-button {
   display: inline-block;
   color: white;
@@ -240,22 +138,13 @@ h3
   text-decoration: none;
   transition: background-color 0.2s ease-in-out;
 }
-
 .restart-button:hover {
   background-color: lightblue;
 }
-
-
-.result-details
-{
-  text-align: center;
-}
 h3
 {
+  padding-top: 15px;
   padding-bottom: 20px;
   text-align: center;
   font-size: xx-large;
-}
-.hide {
-  display: none;
 }
