@@ -141,7 +141,6 @@ const submitQuiz = () => {
     resultsDetails.innerHTML=
     `<div>
     <h3>Congragulations! These are your results </h3>
-    <div id="attempted">Attempted: ${numAttempted} / ${myQuestions.length}</div>
     <div id="corrected">Correct: ${numCorrect} / ${myQuestions.length}</div>
     <div id="wrong">Wrong: ${numWrong} / ${myQuestions.length}</div>
     </div>`;

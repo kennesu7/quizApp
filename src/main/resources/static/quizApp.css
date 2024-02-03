@@ -87,7 +87,7 @@
 .result-details > div{
   margin: 20px;
 }
-#attempted, #corrected, #wrong {
+ #corrected, #wrong {
   display: inline-block;
   width: 30%;
   text-align: center;
