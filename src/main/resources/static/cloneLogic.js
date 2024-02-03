@@ -35,21 +35,9 @@ const myQuestions = [
             "2026"
         ],
         answer: "2024"
-    },
-    {
-        question: "When is Christmas?",
-        choices: [
-            "December 25",
-            "Febuary 29",
-            "Jan 1",
-            "December 26"
-        ],
-        answer: "December 25"
-    },
-
+    }
 ]
 
-// Declare vvariables
 let usersAnswers = {};
 let question;
 let currentQuestionIndex;
@@ -99,10 +87,8 @@ const addUserAnswer = () => {
 const restartQuiz = () => {
     const delete_me = document.querySelector(".main-wrapper");
     delete_me.classList.remove('hide');
-
     const quizContainer = document.querySelector(".quiz-container");
     quizContainer.classList.remove('hide');
-
     const resultsContainer = document.querySelector(".results-container");
     resultsContainer.classList.add('hide');
     // Initialize to 0
@@ -116,19 +102,20 @@ const restartQuiz = () => {
 const submitQuiz = () => {
     const delete_me = document.querySelector(".main-wrapper");
     delete_me.classList.add('hide');
-
     const resultsContainer = document.querySelector(".results-container");
     resultsContainer.classList.remove('hide');
-
     // Asks user to confirm submission
     let confirmMessage = `Do you want to submit? You may have unanswered questions`;
     let askBeforeSubmission = confirm(confirmMessage);
-    let  numCorrect = 0; numWrong = 0;
+    let numAttempted = 0; numCorrect = 0; numWrong = 0;
     // store indexs of incorrect questions
     let incorrectQuestions = [];
     if (askBeforeSubmission) {
         for (let i = 0; i < myQuestions.length; i++) {
             let question = myQuestions[i];
+            if (usersAnswers[`${question.question}`] != undefined) {
+                numAttempted++;
+            }
             if (usersAnswers[`${question.question}`] == question.answer) {
                 numCorrect++;
             } else {
@@ -139,10 +126,7 @@ const submitQuiz = () => {
     }
     // Displays the answers the user got wrong by a map function
     let wrongAnswers = incorrectQuestions.map(i =>
-        `<div class="each-wrong">${myQuestions[i].question}:
-         Your answer - ${usersAnswers[myQuestions[i].question]},
-          Correct answer - ${myQuestions[i].answer}</div><br>`);
-
+        `<div class="each-wrong">${myQuestions[i].question}: Your answer - ${usersAnswers[myQuestions[i].question]}, Correct answer - ${myQuestions[i].answer}</div><br>`);
     wrongAnswers = wrongAnswers.join('');
 
 
@@ -156,7 +140,7 @@ const submitQuiz = () => {
     // displays the users score
     resultsDetails.innerHTML =
         `<div>
-    <h3>Congratulations! These are your results </h3>
+    <h3>Congragulations! These are your results </h3>
     <div id="corrected">Correct: ${numCorrect} / ${myQuestions.length}</div>
     <div id="wrong">Wrong: ${numWrong} / ${myQuestions.length}</div>
     </div>`;
@@ -166,9 +150,8 @@ const submitQuiz = () => {
     showWrongQuestion.innerHTML =
         `<h3> Results </h3>
     <div class="wrongAnswers">
-    ${numCorrect === myQuestions.length ? "Perfect" : wrongAnswers}
+    ${wrongAnswers}
     </div>`;
-    // add the button
     restartButton.innerHTML = button;
 
 }
@@ -182,6 +165,7 @@ const displayQuesstion = (i) => {
     if (myQuestions[currentQuestionIndex]) {
         question = myQuestions[currentQuestionIndex];
         let options = createAnswers();
+
         const questionName = document.querySelector(".question_name");
         const answersContainer = document.querySelector(".answers-containers");
         const actionButtons = document.querySelector(".action-btns");
