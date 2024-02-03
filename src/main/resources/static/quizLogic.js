@@ -1,40 +1,40 @@
 const myQuestions = [
     {
-        question : "Where is cmpt 276 located?",
-        choices : [
+        question: "Where is cmpt 276 located?",
+        choices: [
             "Burnaby Campus",
             "Surrey Campus",
             "Downtown Campus",
             "CMPT 276 does not exist"
         ],
-        answer : "Surrey Campus"
+        answer: "Surrey Campus"
     },
     {
-        question : "2*5?",
-        choices : [
+        question: "2*5?",
+        choices: [
             "10", "90", "25", "0"
         ],
-        answer : 10
+        answer: 10
     },
     {
-        question : "How much is 1GB worth?",
-        choices : [
+        question: "How much is 1GB worth?",
+        choices: [
             "1024mb",
             "500mb",
             "2000mb",
             "0.1TB"
         ],
-        answer : "1024mb"
+        answer: "1024mb"
     },
     {
-        question : "What year is it?",
-        choices : [
+        question: "What year is it?",
+        choices: [
             "2002",
             "2022",
             "2024",
             "2026"
         ],
-        answer : "2024"
+        answer: "2024"
     }
 ]
 
@@ -85,11 +85,11 @@ const addUserAnswer = () => {
 
 
 const restartQuiz = () => {
-    const delete_me=document.querySelector(".main-wrapper");
+    const delete_me = document.querySelector(".main-wrapper");
     delete_me.classList.remove('hide');
-    const quizContainer=document.querySelector(".quiz-container");
+    const quizContainer = document.querySelector(".quiz-container");
     quizContainer.classList.remove('hide');
-    const resultsContainer=document.querySelector(".results-container");
+    const resultsContainer = document.querySelector(".results-container");
     resultsContainer.classList.add('hide');
     // Initialize to 0
     currentQuestionIndex = 0;
@@ -100,9 +100,9 @@ const restartQuiz = () => {
 
 
 const submitQuiz = () => {
-    const delete_me=document.querySelector(".main-wrapper");
+    const delete_me = document.querySelector(".main-wrapper");
     delete_me.classList.add('hide');
-    const resultsContainer=document.querySelector(".results-container");
+    const resultsContainer = document.querySelector(".results-container");
     resultsContainer.classList.remove('hide');
     // Asks user to confirm submission
     let confirmMessage = `Do you want to submit? You may have unanswered questions`;
@@ -131,34 +131,34 @@ const submitQuiz = () => {
 
 
     const resultsDetails = document.querySelector(".results-details");
-    const showWrongQuestion=document.querySelector(".incorrect-questions");
-    const quizContainer=document.querySelector(".quiz-container");
-    const restartButton=document.querySelector(".restart-button");
+    const showWrongQuestion = document.querySelector(".incorrect-questions");
+    const quizContainer = document.querySelector(".quiz-container");
+    const restartButton = document.querySelector(".restart-button");
     const button = '<button class="restart-btn" onclick="restartQuiz()">restart</button>';
 
     quizContainer.classList.add('hide');
     // displays the users score
-    resultsDetails.innerHTML=
-    `<div>
+    resultsDetails.innerHTML =
+        `<div>
     <h3>Congragulations! These are your results </h3>
     <div id="corrected">Correct: ${numCorrect} / ${myQuestions.length}</div>
     <div id="wrong">Wrong: ${numWrong} / ${myQuestions.length}</div>
     </div>`;
 
-    
+
     // shows the questions user got wrong
-    showWrongQuestion.innerHTML=
-    `<h3> Results </h3>
+    showWrongQuestion.innerHTML =
+        `<h3> Results </h3>
     <div class="wrongAnswers">
     ${wrongAnswers}
     </div>`;
     restartButton.innerHTML = button;
-   
+
 }
 
 // displays each question
 const displayQuesstion = (i) => {
-    const hide_me=document.querySelector(".results-container");
+    const hide_me = document.querySelector(".results-container");
     hide_me.classList.add("hide");
     currentQuestionIndex = i;
     // If the question exists
@@ -170,7 +170,7 @@ const displayQuesstion = (i) => {
         const answersContainer = document.querySelector(".answers-containers");
         const actionButtons = document.querySelector(".action-btns");
 
-        questionName.textContent = `Question ${currentQuestionIndex + 1}`;
+        questionName.textContent = `Question ${currentQuestionIndex + 1}:     ${question.question}`;
         answersContainer.innerHTML = options;
 
         let btns = '';
@@ -187,7 +187,7 @@ const displayQuesstion = (i) => {
             btns += `<button class="previous-and-next" onclick="submitQuiz()" style="background-color: red;">Submit</button>`;
         }
         actionButtons.innerHTML = btns;
-    } 
+    }
 }
 // start the quiz
 displayQuesstion(0);
